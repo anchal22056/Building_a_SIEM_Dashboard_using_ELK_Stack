@@ -1,0 +1,6 @@
+{
+  "rule": "Brute Force",
+  "condition": "5 failed logins in 2 minutes",
+  "severity": "High",
+  "action": "Generate Alert"
+}
