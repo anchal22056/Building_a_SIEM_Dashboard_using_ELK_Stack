@@ -1,0 +1,6 @@
+{
+  "rule":"Failed Login",
+  "event":"LOGIN_FAILED",
+  "severity":"Medium",
+  "action":"Notify"
+}
