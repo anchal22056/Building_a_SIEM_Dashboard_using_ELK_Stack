@@ -1,0 +1,6 @@
+{
+  "rule":"Port Scan",
+  "condition":"20 ports within 60 seconds",
+  "severity":"High",
+  "action":"Alert SOC"
+}
