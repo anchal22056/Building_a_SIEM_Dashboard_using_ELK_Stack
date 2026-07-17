@@ -1,0 +1,144 @@
+elasticsearch==8.13.2
+requests==2.32.3
+faker==37.4.2
+python-dateutil==2.9.0.post0
+pandas==2.3.1
+numpy==2.3.1
+
+
+
+What Each Package Does
+1. elasticsearch==8.13.2
+
+Purpose:
+This package allows your Python scripts to communicate with Elasticsearch.
+
+Why is it needed?
+Your generated logs can be sent directly to Elasticsearch for indexing and searching.
+
+Example:
+
+from elasticsearch import Elasticsearch
+
+es = Elasticsearch("http://localhost:9200")
+
+es.index(
+    index="apache-logs",
+    document={"message": "User logged in successfully"}
+)
+
+Used in:
+
+generate_logs.py
+Any future scripts that send logs to Elasticsearch.
+2. requests==2.32.3
+
+Purpose:
+Sends HTTP requests to web services.
+
+Why is it needed?
+Elasticsearch exposes a REST API, so your Python code can interact with it using HTTP requests.
+
+Example:
+
+import requests
+
+response = requests.get("http://localhost:9200")
+
+print(response.text)
+
+You can use it to:
+
+Check if Elasticsearch is running.
+Upload data.
+Query stored logs.
+3. faker==37.4.2
+
+Purpose:
+Generates realistic fake data.
+
+Why is it needed?
+Instead of creating fake usernames, IP addresses, and URLs manually, Faker generates them automatically.
+
+Example:
+
+from faker import Faker
+
+fake = Faker()
+
+print(fake.ipv4())
+print(fake.user_name())
+print(fake.url())
+
+Example output:
+
+192.168.1.20
+johnsmith
+https://example.com
+
+This makes your simulated logs look realistic.
+
+4. python-dateutil==2.9.0.post0
+
+Purpose:
+Provides advanced date and time handling.
+
+Why is it needed?
+Logs always include timestamps. This library makes it easier to work with dates.
+
+Example:
+
+from dateutil import parser
+
+date = parser.parse("2026-07-17 10:30:45")
+
+print(date)
+
+Output:
+
+2026-07-17 10:30:45
+5. pandas==2.3.1
+
+Purpose:
+Analyzes and processes structured data.
+
+Why is it needed?
+If you want to summarize or analyze logs before sending them to Elasticsearch, Pandas is very useful.
+
+Example:
+
+import pandas as pd
+
+data = {
+    "IP": ["192.168.1.1", "192.168.1.2"],
+    "Status": [200, 404]
+}
+
+df = pd.DataFrame(data)
+
+print(df)
+
+Output:
+
+            IP  Status
+0  192.168.1.1     200
+1  192.168.1.2     404
+6. numpy==2.3.1
+
+Purpose:
+Provides numerical operations and random data generation.
+
+Why is it needed?
+It can generate random values for things like HTTP status codes, response times, or log frequencies.
+
+Example:
+
+import numpy as np
+
+status = np.random.choice([200, 301, 404, 500])
+
+print(status)
+
+Possible output:
+
+404
